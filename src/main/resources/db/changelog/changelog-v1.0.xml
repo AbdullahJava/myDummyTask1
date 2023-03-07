@@ -1,0 +1,41 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+
+<!--    <changeSet id="3" author="asd">-->
+<!--        <dropTable tableName="employee1"/>-->
+
+<!--    </changeSet>-->
+
+
+<!--    <changeSet id="4" author="asd">-->
+<!--        <dropTable tableName="employee1"/>-->
+
+<!--    </changeSet>-->
+
+    <changeSet id="5" author="asd">
+        <createTable tableName="employee">
+            <column autoIncrement="true"
+                    name="id"
+                    type="INT">
+                <constraints nullable="false"
+                             primaryKey="true"/>
+            </column>
+            <column name="name"
+                    type="VARCHAR(255)">
+            </column>
+            <column name="editor"
+                    type="VARCHAR(255)">
+            </column>
+            <column name="phone"
+                    type="MEDIUMTEXT"/>
+            <column name="address"
+                    type="VARCHAR(255)"/>
+            <column name="is_active"
+                    type="	TINYINT"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
