@@ -11,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
@@ -64,6 +65,18 @@ public class EmployeeHandler {
         EmployeeDto dto = employeeMapper.ToDto(employeeService.save(employee));
 
         return ResponseEntity.ok(dto);
+
+    }
+
+    public ResponseEntity<EmployeeDto> update ( EmployeeDto employeeDto) {
+
+        Employee employee = employeeService.findById(employeeDto.getId());
+
+        Employee mappedEmployee = employeeMapper.ToUpdate(employeeDto, employee);
+
+        EmployeeDto employeeDto1 = employeeMapper.ToDto(employeeService.save(mappedEmployee));
+
+        return new ResponseEntity<EmployeeDto> ( employeeDto1, HttpStatus.OK);
 
     }
 }

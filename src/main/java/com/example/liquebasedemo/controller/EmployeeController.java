@@ -35,7 +35,10 @@ public class EmployeeController {
 
     }
 
-
+    @PutMapping("/edit")
+    public ResponseEntity<EmployeeDto> update (@RequestBody EmployeeDto employeeDto) {
+        return employeeHandler.update(employeeDto);
+    }
 
 
 }
